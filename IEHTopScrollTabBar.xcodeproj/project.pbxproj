@@ -14,6 +14,7 @@
 		78CEC5E91D1021DE00F48320 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78CEC5E71D1021DE00F48320 /* LaunchScreen.storyboard */; };
 		78CEC5F41D1021DE00F48320 /* IEHTopScrollTabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CEC5F31D1021DE00F48320 /* IEHTopScrollTabBarTests.swift */; };
 		78CEC5FF1D1021DE00F48320 /* IEHTopScrollTabBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CEC5FE1D1021DE00F48320 /* IEHTopScrollTabBarUITests.swift */; };
+		78CEC60D1D1022EF00F48320 /* TopScrollTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CEC60C1D1022EF00F48320 /* TopScrollTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		78CEC5FA1D1021DE00F48320 /* IEHTopScrollTabBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IEHTopScrollTabBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CEC5FE1D1021DE00F48320 /* IEHTopScrollTabBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEHTopScrollTabBarUITests.swift; sourceTree = "<group>"; };
 		78CEC6001D1021DE00F48320 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78CEC60C1D1022EF00F48320 /* TopScrollTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				78CEC5DE1D1021DE00F48320 /* AppDelegate.swift */,
+				78CEC60C1D1022EF00F48320 /* TopScrollTabBar.swift */,
 				78CEC5E01D1021DE00F48320 /* ViewController.swift */,
 				78CEC5E21D1021DE00F48320 /* Main.storyboard */,
 				78CEC5E51D1021DE00F48320 /* Assets.xcassets */,
@@ -193,13 +196,16 @@
 				TargetAttributes = {
 					78CEC5DA1D1021DE00F48320 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					78CEC5EE1D1021DE00F48320 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 78CEC5DA1D1021DE00F48320;
 					};
 					78CEC5F91D1021DE00F48320 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 78CEC5DA1D1021DE00F48320;
 					};
 				};
@@ -256,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78CEC60D1D1022EF00F48320 /* TopScrollTabBar.swift in Sources */,
 				78CEC5E11D1021DE00F48320 /* ViewController.swift in Sources */,
 				78CEC5DF1D1021DE00F48320 /* AppDelegate.swift in Sources */,
 			);
@@ -405,6 +412,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ismailElHabbash.IEHTopScrollTabBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -416,6 +424,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ismailElHabbash.IEHTopScrollTabBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -427,6 +436,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ismailElHabbash.IEHTopScrollTabBarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IEHTopScrollTabBar.app/IEHTopScrollTabBar";
 			};
 			name = Debug;
@@ -439,6 +449,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ismailElHabbash.IEHTopScrollTabBarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IEHTopScrollTabBar.app/IEHTopScrollTabBar";
 			};
 			name = Release;
@@ -450,6 +461,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ismailElHabbash.IEHTopScrollTabBarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = IEHTopScrollTabBar;
 			};
 			name = Debug;
@@ -461,6 +473,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ismailElHabbash.IEHTopScrollTabBarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = IEHTopScrollTabBar;
 			};
 			name = Release;
@@ -484,6 +497,7 @@
 				78CEC6051D1021DE00F48320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		78CEC6061D1021DE00F48320 /* Build configuration list for PBXNativeTarget "IEHTopScrollTabBarTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +506,7 @@
 				78CEC6081D1021DE00F48320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		78CEC6091D1021DE00F48320 /* Build configuration list for PBXNativeTarget "IEHTopScrollTabBarUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +515,7 @@
 				78CEC60B1D1021DE00F48320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
