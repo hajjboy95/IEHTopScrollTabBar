@@ -100,28 +100,34 @@ class TopScrollTabBar: UIScrollView {
         let rightSpace = self.contentSize.width - leftSpace
         let centerOfScreen = bounds.size.width/2
         let buttonWidth = button.frame.size.width
+        let buttonXpos  = button.frame.origin.x
         var moveableDistance:CGPoint = CGPoint.zero
         let maxOffsetX = contentSize.width - frame.size.width
-        print("rightSpace = \(rightSpace) leftSpace = \(leftSpace) contentOffset = \(contentOffset.x) centerOfScreen = \(centerOfScreen) self.bounds.size.width = \(self.bounds.size.width) contentSize.width = \(contentSize.width) maxOffsetX = \(maxOffsetX)")
 
         if (leftSpace < centerOfScreen) {
-            return
+            // empty
+            print("empty buttonWIdth \(buttonWidth)")
+            if leftSpace != 0 {
+                moveableDistance.x = leftSpace - buttonWidth/2
+            }
+
         }
         else if (leftSpace < contentSize.width/2 && leftSpace > centerOfScreen) {
             let availableSpace = leftSpace - centerOfScreen
             print("left:availableSpace = \(availableSpace)")
             moveableDistance.x = availableSpace + buttonWidth/2
-        } else if (rightSpace < centerOfScreen) {
-            let availableSpace =  centerOfScreen - rightSpace
-            print("right:availableSpace = \(availableSpace)")
-            moveableDistance.x = availableSpace + buttonWidth
+            // for the right most buttons
+        } else {//if (rightSpace < centerOfScreen) {
+            //checks to see if user is able to scroll - if his able then scroll
+            
+            if contentOffset.x < maxOffsetX {
 
+                moveableDistance.x = maxOffsetX
+            } else {
+                moveableDistance.x = maxOffsetX
+            }
         }
-            //center the item
-        else {
-            print("in the else")
-            //            moveableDistance.x = centerOfScreen
-        }
+             print("moveableDistance = \(moveableDistance)")
         setContentOffset(moveableDistance,animated: true)
     }
 }
