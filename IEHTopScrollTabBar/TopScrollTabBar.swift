@@ -17,10 +17,10 @@ class TopScrollTabBar: UIScrollView {
 
     private var selectedButton:UIButton = UIButton() {
         didSet {
-            selectedButton.backgroundColor = selectedButton.titleColorForState(.Normal)
-            selectedButton.setTitleColor(UIColor.whiteColor(), forState: .Selected)
-            selectedButton.backgroundColor = selectedButton.titleColorForState(.Normal)
-            self.backgroundColor = selectedButton.titleColorForState(.Normal)
+            selectedButton.backgroundColor = selectedButton.titleColor(for: UIControlState())
+            selectedButton.setTitleColor(UIColor.white(), for: .selected)
+            selectedButton.backgroundColor = selectedButton.titleColor(for: UIControlState())
+            self.backgroundColor = selectedButton.titleColor(for: UIControlState())
             scrollViewBottomLayerColor(self.backgroundColor!)
         }
     }
@@ -35,7 +35,7 @@ class TopScrollTabBar: UIScrollView {
     }
 
     convenience init(inView:UIView, items:[TopScrollTabBarItem]) {
-        let yPoint = UIApplication.sharedApplication().statusBarFrame.height
+        let yPoint = UIApplication.shared().statusBarFrame.height
         let rect = CGRect(x: inView.bounds.origin.x , y: yPoint, width: inView.frame.width, height: 44)
         self.init(frame: rect)
         showsHorizontalScrollIndicator = false
@@ -50,19 +50,19 @@ class TopScrollTabBar: UIScrollView {
         layer.addSublayer(bottomLayer)
 
     }
-    private func scrollViewBottomLayerColor(color:UIColor) {
-        bottomLayer.borderColor = color.CGColor
-        bottomLayer.backgroundColor = color.CGColor
+    private func scrollViewBottomLayerColor(_ color:UIColor) {
+        bottomLayer.borderColor = color.cgColor
+        bottomLayer.backgroundColor = color.cgColor
     }
 
     private func intialiseFirstLook() {
-        topScrollBarButtons.first?.selected = true
+        topScrollBarButtons.first?.isSelected = true
         selectedButton = topScrollBarButtons.first ?? UIButton()
-        self.backgroundColor = selectedButton.titleColorForState(.Normal)
+        self.backgroundColor = selectedButton.titleColor(for: UIControlState())
         scrollViewBottomLayerColor(self.backgroundColor!)
     }
 
-    private func addScrollItems(items:[TopScrollTabBarItem]) {
+    private func addScrollItems(_ items:[TopScrollTabBarItem]) {
         // initialise the top scrollbar items
         var accumulatedWidth:CGFloat = 0.0
 
@@ -79,36 +79,36 @@ class TopScrollTabBar: UIScrollView {
         self.contentSize = CGSize(width: accumulatedWidth, height: height)
     }
 
-    private func createButtonForItem(item:TopScrollTabBarItem) -> UIButton {
+    private func createButtonForItem(_ item:TopScrollTabBarItem) -> UIButton {
         let button = UIButton(frame: CGRect.zero)
-        button.setTitle(item.title, forState: .Normal)
+        button.setTitle(item.title, for: UIControlState())
 
-        button.setTitleColor(item.color, forState: .Normal)
-        button.backgroundColor = UIColor.whiteColor()
-        button.setTitleColor(item.color.colorWithAlphaComponent(0.4) , forState: .Highlighted)
+        button.setTitleColor(item.color, for: UIControlState())
+        button.backgroundColor = UIColor.white()
+        button.setTitleColor(item.color.withAlphaComponent(0.4) , for: .highlighted)
 
         button.sizeToFit()
         let buttonFrame = button.frame
         button.frame = CGRect(x: 0.0, y: 0.0, width: buttonFrame.width + 2*buttonPadding, height: self.frame.size.height)
-        button.addTarget(self, action: #selector(TopScrollTabBar.buttonTapped(_:)), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(TopScrollTabBar.buttonTapped(_:)), for: .touchUpInside)
 
         return button
     }
 
-    func buttonTapped(sender: UIButton) {
+    func buttonTapped(_ sender: UIButton) {
         focusOnButton(sender)
-        selectedButton.selected = false
+        selectedButton.isSelected = false
         selectedButton = sender
         for b in topScrollBarButtons {
             if b == selectedButton {
-                selectedButton.selected = true
+                selectedButton.isSelected = true
             } else {
-                b.backgroundColor = UIColor.whiteColor()
+                b.backgroundColor = UIColor.white()
             }
         }
     }
 
-    private func focusOnButton(button:UIButton) {
+    private func focusOnButton(_ button:UIButton) {
         let leftSpace = button.frame.origin.x
         let rightSpace = self.contentSize.width - leftSpace
         let centerOfScreen = bounds.size.width/2
